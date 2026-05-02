@@ -12,8 +12,8 @@ provider "azurerm" {
 }
 
 
-resource "azurerm_resource_group" "Jenkinstest" {
-  name     = "Jenkinstest"
+resource "azurerm_resource_group" "Jenkinstest1" {
+  name     = "Jenkinstest1"
   location = "West US"
 }
 
