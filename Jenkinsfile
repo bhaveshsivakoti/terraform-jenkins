@@ -3,11 +3,16 @@ pipeline {
 
     environment {
         TF_IN_AUTOMATION = "true"
+
+        ARM_CLIENT_ID       = credentials('ARM_CLIENT_ID')
+        ARM_CLIENT_SECRET   = credentials('ARM_CLIENT_SECRET')
+        ARM_TENANT_ID       = credentials('ARM_TENANT_ID')
+        ARM_SUBSCRIPTION_ID = credentials('ARM_SUBSCRIPTION_ID')
     }
 
     stages {
 
-        stage('Checkout') {
+        stage('Checkout Code') {
             steps {
                 checkout scm
             }
@@ -37,4 +42,13 @@ pipeline {
             }
         }
     }
-}
+
+    post {
+        success {
+            echo '✅ Terraform successfully applied Azure infrastructure'
+        }
+        failure {
+            echo '❌ Terraform failed'
+        }
+    }
+}    
