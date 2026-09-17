@@ -17,3 +17,8 @@ resource "azurerm_resource_group" "Jenkinstest1" {
   location = "West US"
 }
 
+resource "azurerm_resource_group" "Jenkinstest2" {
+  name     = "Jenkinstest1"
+  location = "West US"
+}
+
